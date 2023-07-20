@@ -5,7 +5,7 @@ Here I propose a web application .html format with the back end in python.
 
 ## How to run?
 1. Download the codes and files. 
-'''[git clone](https://github.com/FahadKhalid1/-Giskard-test.git) ''''
+''' [git clone](https://github.com/FahadKhalid1/-Giskard-test.git) ''''
 
 2. Establish the proper environment with flask, sqlite3 and json.
 3. Open the commad prompt and navigate to the working directory.
