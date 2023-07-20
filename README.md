@@ -9,7 +9,6 @@ Here I propose a web application .html format with the back end in python.
 ### Clone the repository:
 ```
 https://github.com/FahadKhalid1/-Giskard-test.git
-
 ```
 
 2. Establish the proper environment with flask, sqlite3 and json.
