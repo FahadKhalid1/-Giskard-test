@@ -5,6 +5,13 @@ Here I propose a web application .html format with the back end in python.
 
 ## How to run?
 1. Download the codes and files. 
+
+### Clone the repository:
+```
+https://github.com/FahadKhalid1/-Giskard-test.git
+
+```
+
 2. Establish the proper environment with flask, sqlite3 and json.
 3. Open the commad prompt and navigate to the working directory.
 4. Write 'python backend_flask.py' make sure to connect at the write port '5000'.
