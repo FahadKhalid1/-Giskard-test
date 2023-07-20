@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Star Wars Route Calculator</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        #output { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Star Wars Route Calculator</h1>
+    <p>Upload the Millennium Falcon and Empire JSON files:</p>
+    <input type="file" id="millenniumFile" accept=".json">
+    <input type="file" id="empireFile" accept=".json">
+    <button onclick="calculateOdds()">Calculate Odds</button>
+
+    <div id="output"></div>
+
+    <script>
+        async function getFileContent(fileInputId) {
+            const fileInput = document.getElementById(fileInputId);
+            const file = fileInput.files[0];
+            if (!file) return null;
+            return new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onload = (event) => resolve(event.target.result);
+                reader.readAsText(file);
+            });
+        }
+
+        async function calculateOdds() {
+            const millenniumData = JSON.parse(await getFileContent('millenniumFile'));
+            const empireData = JSON.parse(await getFileContent('empireFile'));
+
+            // You would need to replace the URL with the URL of your backend service
+            const response = await fetch('http://localhost:5000/calculateOdds', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    millenniumData: millenniumData,
+                    empireData: empireData
+                })
+            });
+
+            const odds = await response.json();
+            document.getElementById('output').innerText = `Odds: ${odds.odds.toFixed(2)}%`;
+
+        }
+    </script>
+</body>
+</html>
